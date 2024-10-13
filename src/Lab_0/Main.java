@@ -2,18 +2,18 @@ package Lab_0;
 
 public class Main {
     public static void main(String[] args) {
-        Book book1 = new Book("Simple Book", 10.00);
-        Book book2 = new Book("Another Book", 20.00);
-
         Cart cart = new Cart();
-        cart.addBook(book1);
-        cart.addBook(book2);
+        cart.addBook(new Book("Book 1", 10));
+        cart.addBook(new Book("Book 2", 20));
 
         System.out.println("Total before discount: $" + cart.getTotal());
 
-        Discount discount = new Discount();
-        double discountedTotal = discount.applyDiscount(cart.getTotal());
+        // Apply 10% discount
+        Discount percentageDiscount = new PercentageDiscount(10);
+        System.out.println("Total after 10% discount: $" + percentageDiscount.applyDiscount(cart.getTotal()));
 
-        System.out.println("Total after discount: $" + discountedTotal);
+        // Apply $5 fixed discount
+        Discount fixedDiscount = new FixedAmountDiscount(5);
+        System.out.println("Total after $5 discount: $" + fixedDiscount.applyDiscount(cart.getTotal()));
     }
 }
