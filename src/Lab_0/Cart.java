@@ -1,5 +1,6 @@
 package Lab_0;
 
+//Single responsibility principle
 public class Cart {
     private double total;
 
